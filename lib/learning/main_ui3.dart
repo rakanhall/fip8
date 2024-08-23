@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -48,10 +49,12 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    Image.asset(
-                      "assets/1TestNature.jpeg",
-                      width: MediaQuery.of(context).size.width,
-                      fit: BoxFit.cover,
+                    Transform.rotate(angle: pi * 1,
+                      child: Image.asset(
+                        "assets/1TestNature.jpeg",
+                        width: MediaQuery.of(context).size.width,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     const Align(
                       alignment: Alignment.centerLeft,
@@ -131,9 +134,11 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset("assets/TestImageCharacter.png",
-                              width: MediaQuery.of(context).size.width / 2,
-                              fit: BoxFit.cover),
+                          Transform.translate(offset: Offset(0, -100),
+                            child: Image.asset("assets/TestImageCharacter.png",
+                                width: MediaQuery.of(context).size.width / 2,
+                                fit: BoxFit.cover),
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
@@ -159,9 +164,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),Container(
                       color: Colors.blue, // Container's color (like the frame)
-                      padding: EdgeInsets.all(80), // Space inside the container, pushing the content inward
+                      padding: const EdgeInsets.all(80), // Space inside the container, pushing the content inward
                         // Space outside the container, pushing it away from other widgets
-                      child: Text("Hello!"), // The content inside the container
+                      child: const Text("Hello!"), // The content inside the container
                     )
 
                   ],
